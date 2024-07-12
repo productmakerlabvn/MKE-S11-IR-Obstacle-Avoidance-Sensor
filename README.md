@@ -1,20 +1,20 @@
-# Cảm biến dò đường MKE-S10 Line Follower Sensor
+# Cảm biến vật cản hồng ngoại MKE-S11 IR Obstacle Avoidance Sensor
 
 ## Giới thiệu
 
-Cảm biến dò đường MKE-S10 Line Follower Sensor sử dụng cảm biến CNY70 bao gồm 1 mắt phát và 1 mắt thu hồng ngoại, cảm biến dựa vào độ phản xạ của tia hồng ngoại theo màu sắc của vật thể ở gần để xác định 2 màu có độ tương phản cao (thường là trắng và đen), ứng dụng trong các mô hình xe dò đường (dò line), cảm biến trả ra giá trị điện áp Analog tương ứng với độ phản xạ giúp bạn có thể ghi nhận và xử lý thông tin một cách chính xác nhất, ngoài ra cảm biến còn được bổ sung các thiết kế ổn định, chống nhiễu.
+Cảm biến vật cản hồng ngoại MKE-S11 IR Obstacle Avoidance Sensor bao gồm 1 mắt phát và 1 mắt thu hồng ngoại IR, cảm biến dựa vào độ phản xạ của tia hồng ngoại để xác định vật cản ở khoảng cách gần, ứng dụng trong các mô hình xe robot tránh vật cản, cảm biến trả ra giá trị điện áp Analog tương ứng với độ phản xạ giúp bạn có thể ghi nhận và xử lý thông tin một cách chính xác nhất, ngoài ra cảm biến còn được bổ sung các thiết kế ổn định, chống nhiễu.
 
-Cảm biến dò đường MKE-S10 Line Follower Sensor thuộc hệ sinh thái phần cứng Robotics MakerEdu nên có thể sử dụng trực tiếp an toàn với các mạch điều khiển trung tâm ở cả hai mức điện áp 3.3VDC và 5VDC như: Arduino, Raspberry Pi, Jetson Nano, Micro:bit,....với chuẩn kết nối Connector XH2.54 thông dụng.
+Cảm biến vật cản hồng ngoại MKE-S11 IR Obstacle Avoidance Sensor thuộc hệ sinh thái phần cứng Robotics MakerEdu nên có thể sử dụng trực tiếp an toàn với các mạch điều khiển trung tâm ở cả hai mức điện áp 3.3VDC và 5VDC như: Arduino, Raspberry Pi, Jetson Nano, Micro:bit,....với chuẩn kết nối Connector XH2.54 thông dụng.
 
 ## Nguyên lý hoạt động
 
-Cảm biến sử dụng mắt thu phát hồng ngoại CNY70 bao gồm một mắt thu và một mắt phát hồng ngoại để có thể có thể xác định được độ tương phản màu sắc của vật thể ở gần dựa theo độ phản xạ của ánh sáng hồng ngoại, đặc biệt với hai màu trắng và đen là độ phản xạ thay đổi rõ nhất, dựa theo nguyên lý này ta làm các đường dẫn màu đen trên nền trắng để cảm biến có thể hoạt động.
+Cảm biến sử dụng một mắt thu và một mắt phát hồng ngoại để có thể có thể xác định được khoảng cách đến vật thể dựa theo độ phản xạ của ánh sáng hồng ngoại, vật thể ở gần thì cường độ phản xạ sẽ lớn và giảm dần khi đi ra xa, lưu ý phương pháp đo khoảng cách bằng ánh sáng này bị ảnh hưởng bởi màu sắc và bề mặt của vật thể nên thường chỉ được dùng để xác định vật cản phía trước trong các mô hình xe tránh vật cản, robot.
 
-![MKE_S10](/image/MKE_S10_1.jpg)
+![MKE_S11](/image/MKE_S11_1.jpg)
 
 Khi mắt thu hồng ngoại nhận biết được ánh sáng từ mắt phát hồng ngoại thì điện trở (độ dẫn điện) của mắt thu sẽ thay đổi theo cường độ của ánh sáng hồng ngoại, để chuyển giá trị điện trở thành điện áp để có thể đọc bằng bộ chuyển đổi ADC (Analog to Digital Converter) của mạch xử lý ta mắc mạch cầu phân áp như sau:
 
-![MKE_S10](/image/MKE_S10_2.jpg)
+![MKE_S11](/image/MKE_S11_2.jpg)
 
 Diễn giải các giá trị:
 
@@ -26,11 +26,11 @@ Ta thấy theo công thức trong hình giá trị Vout sẽ thay đổi theo gi
 
 ## Thông số kỹ thuật
 
-- Model: MKE-S10
+- Model: MKE-S11
 - Điện áp hoạt động: 5VDC
 - Chuẩn giao tiếp: Analog
 - Điện áp giao tiếp: 0~3.3VDC
-- Sử dụng mắt thu phát hồng ngoại CNY70 bao gồm một mắt thu và một mắt phát hồng ngoại để độ tương phản màu sắc của vật thể ở khoảng cách gần dựa theo độ phản xạ của ánh sáng hồng ngoại (tốt nhất với hai màu trắng và đen), ứng dụng trong các mô hình xe dò đường (dò line).
+- Đo độ phản xạ của tia hồng ngoại để xác định vật cản ở khoảng cách gần, ứng dụng trong các mô hình xe robot tránh vật cản.
 - Sử dụng trực tiếp an toàn với các board mạch giao tiếp ở cả hai mức điện áp 3.3VDC và 5VDC như: Arduino, Raspberry Pi, Jetson Nano, Micro:bit,....
 - Bổ sung thêm các thiết kế ổn định, chống nhiễu.
 - Chuẩn kết nối: connector XH2.54 3Pins
@@ -38,13 +38,13 @@ Ta thấy theo công thức trong hình giá trị Vout sẽ thay đổi theo gi
 
 ## Hình ảnh sản phẩm
 
-![MKE_S10](/image/MKE_S10_3.jpg)
+![MKE_S11](/image/MKE_S11_3.jpg)
 
-![MKE_S10](/image/MKE_S10_4.jpg)
+![MKE_S11](/image/MKE_S11_4.jpg)
 
 ## Kích thước sản phẩm
 
-![MKE_S10](/image/MKE_S10_5.JPG)
+![MKE_S11](/image/MKE_S11_5.JPG)
 
 ## Các chân tín hiệu
 
@@ -76,7 +76,7 @@ Ta thấy theo công thức trong hình giá trị Vout sẽ thay đổi theo gi
 [Hướng dẫn cài đặt phần mềm, nạp chương trình, cài đặt bộ thư viện Arduino cơ bản.](https://github.com/makerlabvn/Arduino-Vietduino)
 - Tải và cài đặt [phần mềm Arduino tại đây.](https://www.arduino.cc/en/software)
 - Trong Tools / Library Manager, tìm và cài đặt bộ thư viện tổng hợp "MAKERLABVN" by MakerLab.vn
-- Mở chương trình mẫu "MKE_S10_Line_LCD_Serial.ino" tại File / Examples / MAKERLABVN / Sensor / MKE_S10_Line hoặc [tải chương trình mẫu tại đây](/arduino)
+- Mở chương trình mẫu "MKE_S11_IROA_Serial.ino" tại File / Examples / MAKERLABVN / Sensor / MKE_S11_IROA hoặc [tải chương trình mẫu tại đây](/arduino)
 - Chọn board là Arduino Uno (mạch Vietduino Uno tương thích với Arduino Uno), chọn đúng cổng COM Port của mạch và tiến hành nạp chương trình.
 - Kết nối mạch Vietduino Uno với MakerEdu Shield, kết nối cảm biến tại cổng [A1] và màn hình LCD vào cổng [I2C] trên MakerEdu Shield, cấp nguồn qua cổng USB của Vietduino Uno để thấy chương trình hoạt động.
 
@@ -93,7 +93,7 @@ Ta thấy theo công thức trong hình giá trị Vout sẽ thay đổi theo gi
 ### Hướng dẫn lập trình với Micro:bit (kéo thả khối)
 [Hướng dẫn nạp chương trình, cài đặt Extension Micro:bit cơ bản.](https://github.com/makerlabvn/MakeCode-microbit)
 - Khởi động phần mềm MakeCode tại: [https://makecode.microbit.org/](https://makecode.microbit.org/)
-- Chọn My Projects / Import / Import URL theo đường link của chương trình mẫu: [https://github.com/devmakerlabvn/makecode-mke-s10-line-follower-sensor](https://github.com/devmakerlabvn/makecode-mke-s10-line-follower-sensor)
+- Chọn My Projects / Import / Import URL theo đường link của chương trình mẫu: [https://github.com/devmakerlabvn/makecode-mke-s11-ir-obstacle-avoidance-sensor](https://github.com/devmakerlabvn/makecode-mke-s11-ir-obstacle-avoidance-sensor)
 - Kết nối Micro:bit với máy tính và nạp chương trình.
 - Kết nối mạch Micro:bit với MakerEdu Shield, kết nối cảm biến tại cổng [P0] và màn hình LCD vào cổng [I2C] trên MakerEdu Shield, **cấp nguồn qua cổng USB của MakerEdu Shield** để thấy chương trình hoạt động.
 
